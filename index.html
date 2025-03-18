@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #ffd1dc;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen text-gray-800 relative">
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
+    <div class="bg-white p-8 rounded-2xl shadow-lg text-center max-w-lg">
+        <h1 class="text-3xl font-bold text-pink-500">Happy 1.4 Year, My Love! 💖</h1>
+        <p class="mt-4 text-lg">ขอบคุณที่อยู่ข้างกันเสมอ พี่รักหนูมากๆ นะ</p>
+        <img src="/picture/S__9019399_0.jpg" alt="Couple Picture" class="mt-4 w-60 h-60 object-cover rounded-full shadow-md">
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="/picture/S__9019396_0.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+        <img src="/picture/S__9019397_0.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+        <img src="/picture/S__9019398_0.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+        <img src="/picture/S__9068548.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+        <img src="/picture/S__9019400_0.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+        <img src="/picture/S__9019401_0.jpg" class="w-32 h-32 object-cover rounded-lg shadow-md">
+    </div>
+</body>
+
+</html>
